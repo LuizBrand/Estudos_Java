@@ -34,7 +34,9 @@ public class Main {
         madara.estrategiaDeBatalhaNinja();
         madara.sharinganAtivado();
         madara.habilidadeEspecial();
-
+        System.out.println("\n");
+        madara.inteligenciaDeCombate();
+        madara.inteligenciaDeCombate(180);
 
     }
 }

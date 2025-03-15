@@ -20,7 +20,7 @@ public class Main {
         contaPoupancaNaruto.consultarSaldo();
         System.out.println("---------------------------------------------------------");
 
-        //Transferencia entre contas
+/*        //Transferencia entre contas
         //transferencia entre contas correntes
         ContaCorrente sasuke = new ContaCorrente(TipoConta.CORRENTE, "Sasuke Uchiha", 5000);
         ContaCorrente sakura = new ContaCorrente(TipoConta.CORRENTE, "Sakura Haruno", 2500);
@@ -29,6 +29,6 @@ public class Main {
         //consulando saldo bancario da sakura e do sasuke
         sasuke.consultarSaldo();
         sakura.consultarSaldo();
-        System.out.println("---------------------------------------------------------");
+        System.out.println("---------------------------------------------------------");*/
     }
 }

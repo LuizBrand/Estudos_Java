@@ -1,6 +1,6 @@
 package NivelIntermedario.Desafio5;
 
-public class ContaPoupanca extends BancoKonoha{
+public class ContaPoupanca extends ContaBancaria{
 
     //Overload dos Constructors
     //noArgsConstructor

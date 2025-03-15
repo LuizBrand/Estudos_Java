@@ -24,6 +24,15 @@ public abstract class ContaBancaria implements Conta  {
     @Override
     public abstract void depositar(double valor);
 
+    //Métodoo para confirmação do deposito
+    protected void confirmacaoDeposito(double valor, double taxaDeposito){
+        if (valor <= 0){
+            System.out.println("Erro, não é possível depositar valor menor/igual a 0 ou maior que o Saldo");
+        } else {
+            modificarValor(valor, taxaDeposito);
+        }
+    }
+
     //Métodoo transferencia para conta corrente
     protected void Transferencia(ContaCorrente destino, double valor) {
         if(valor <= 0 || valor > saldo) {
@@ -52,7 +61,7 @@ public abstract class ContaBancaria implements Conta  {
     }
 
     //Métodoo para alteração do saldo e mostrar saldo quando fizer um deposito
-    protected void modificarValor(double valor, double taxaDeposito){
+    private void modificarValor(double valor, double taxaDeposito){
         double valorComTaxa = valor * taxaDeposito;
         saldo += valorComTaxa;
         System.out.println("Foi depositado R$ " + valorComTaxa + " na conta " + tipoConta + " do usuario(a) " + usuario);

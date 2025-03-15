@@ -15,11 +15,11 @@ public class ContaCorrente extends ContaBancaria{
 
     @Override
     public void depositar(double valor) {
+        double taxaDeposito = 1;
         if (valor <= 0){
-            System.out.println("Erro, não é possível depositar valor negativo ou igual a 0");
+            System.out.println("Erro, não é possível depositar valor menor/igual a 0 ou maior que o Saldo");
         } else {
-            saldo += valor;
-            System.out.println("Foi depositado " + valor + " na conta" + tipoConta + " do usuario(a) " + usuario);
+            modificarValor(valor, taxaDeposito);
         }
     }
 

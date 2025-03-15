@@ -3,32 +3,38 @@ package NivelIntermedario.Desafio5;
 public class Main {
     public static void main(String[] args) {
 
-        //inicializando os objetos das contas do natuto
-        ContaCorrente contaCorrenteNaruto = new ContaCorrente(TipoConta.CORRENTE, "Naruto Uzumaki", 2550.50);
-        ContaPoupanca contaPoupancaNaruto = new ContaPoupanca(TipoConta.POUPANCA, "Naruto Uzumaki", 15000.00);
+        //inicializando os objetos das contas dos ninjas
+        ContaCorrente ccNaruto = new ContaCorrente(TipoConta.CORRENTE, "Naruto Uzumaki", 2550.50);
+        ContaPoupanca cpNaruto = new ContaPoupanca(TipoConta.POUPANCA, "Naruto Uzumaki", 15000.00);
+        ContaCorrente ccSakura = new ContaCorrente(TipoConta.CORRENTE, "Sakura Haruno", 0);
+        ContaPoupanca cpSakura = new ContaPoupanca(TipoConta.POUPANCA, "Sakura Haruno",1000);
 
-        //consultando saldo das contas do Naruto
-        contaCorrenteNaruto.consultarSaldo();
-        contaPoupancaNaruto.consultarSaldo();
 
-        //depositando valores nas contas do naruto
-        contaCorrenteNaruto.depositar(5000);
-        contaPoupancaNaruto.depositar(2750);
-
-        //consultando novamente os saldos para ver os valores atualizados
-        contaCorrenteNaruto.consultarSaldo();
-        contaPoupancaNaruto.consultarSaldo();
+        //Valores iniciais naturo
+        System.out.println("Consultando saldo Inicial das contas do Naruto ");
+        ccNaruto.consultarSaldo();
+        cpNaruto.consultarSaldo();
         System.out.println("---------------------------------------------------------");
 
-/*        //Transferencia entre contas
-        //transferencia entre contas correntes
-        ContaCorrente sasuke = new ContaCorrente(TipoConta.CORRENTE, "Sasuke Uchiha", 5000);
-        ContaCorrente sakura = new ContaCorrente(TipoConta.CORRENTE, "Sakura Haruno", 2500);
-        sasuke.Transferencia(sasuke, 500, sakura);
+        //Naruto depositou valores nas suas duas contas
+        System.out.println("Naruto depositando valores nas suas duas contas");
+        ccNaruto.depositar(5000);
+        cpNaruto.depositar(2750);
+        System.out.println("---------------------------------------------------------");
 
-        //consulando saldo bancario da sakura e do sasuke
-        sasuke.consultarSaldo();
-        sakura.consultarSaldo();
-        System.out.println("---------------------------------------------------------");*/
+        //valores iniciais sakura
+        System.out.println("Consultando saldo Inicial das contas da Sakura");
+        ccSakura.consultarSaldo();
+        cpSakura.consultarSaldo();
+        System.out.println("---------------------------------------------------------");
+
+        //Realizando transferencia entre Ninjas
+        System.out.println("Usando metodo de transferencia para conta corrente, Naruto Transferindo para Sakura");
+        ccNaruto.Transferencia(ccSakura, 500);
+        System.out.println("---------------------------------------------------------");
+        System.out.println("Usando metodo de transferencia para conta Poupança, Naruto Transferindo para Sakura");
+        ccNaruto.Transferencia(cpSakura, 600);
+
+
     }
 }

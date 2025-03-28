@@ -17,6 +17,6 @@ public class EquipamentosNinjas {
 
     @Override
     public String toString() {
-        return nome;
+        return "Nome do Equipamento: " + nome;
     }
 }

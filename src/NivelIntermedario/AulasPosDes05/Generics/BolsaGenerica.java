@@ -16,6 +16,13 @@ public class BolsaGenerica<T> {
         equipamentos.add(equipamento);
     }
 
+    //Mostrando equipamentos
+    public void mostrarEquipamentos() {
+        for (T equipamento : equipamentos) {
+            System.out.println(equipamento);
+        }
+    }
+
     public List<T> getEquipamentos() {
         return equipamentos;
     }
@@ -26,6 +33,6 @@ public class BolsaGenerica<T> {
 
     @Override
     public String toString() {
-        return "Bolsa de Equipamentos : " + equipamentos.toString();
+        return "Tem -> " + equipamentos.toString();
     }
 }

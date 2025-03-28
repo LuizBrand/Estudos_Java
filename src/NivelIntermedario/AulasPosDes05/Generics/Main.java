@@ -1,7 +1,5 @@
 package NivelIntermedario.AulasPosDes05.Generics;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -13,9 +11,14 @@ public class Main {
         bolsaGenerica.addEquipamento(kunai);
         bolsaGenerica.addEquipamento(shuriken);
         bolsaGenerica.addEquipamento(pergaminho);
+        bolsaGenerica.mostrarEquipamentos();
+        System.out.println("------------------------");
 
-        System.out.println(bolsaGenerica);
-
+        BolsaGenerica<Object> livrosJiraiya = new BolsaGenerica<>();
+        livrosJiraiya.addEquipamento(new EquipamentosNinjas("Icha Icha"));
+        livrosJiraiya.addEquipamento(new EquipamentosNinjas("A Lenda de um Ninja Determinado"));
+        livrosJiraiya.addEquipamento(new Object()); //referencia o lugar na memoria onde esse objeto esta localizado
+        livrosJiraiya.mostrarEquipamentos();
 
     }
 }

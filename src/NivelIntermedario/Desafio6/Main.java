@@ -1,14 +1,12 @@
 package NivelIntermedario.Desafio6;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        List<Ninja> ninjaList = new LinkedList<>();
+        LinkedList<Ninja> ninjaList = new LinkedList<>();
 
         ninjaList.add(new Ninja("Naruto Uzumaki", 17, "Konoha"));
         ninjaList.add(new Ninja("Sasuke Uchiha", 18, "Konoha"));
@@ -16,7 +14,7 @@ public class Main {
         ninjaList.add(new Ninja("Sakura Haruno", 18, "Konoha"));
         ninjaList.add(new Ninja("Gaara", 17, "Areia"));
         ninjaList.add(new Ninja("Kakashi Hatake", 31, "Konoha"));
-        ninjaList.add(new Ninja("Shikamaru Nara", 18, "Aldeia da Folha"));
+        ninjaList.add(new Ninja("Shikamaru Nara", 18, "Konoha"));
 
 
         boolean quit = false;
@@ -60,19 +58,24 @@ public class Main {
                 case 3:
                     //buscar um ninja na lista pelo seu nome
                     System.out.println("Informe o nome do Ninja que deseja buscar: ");
-                    String nameSpecified = scanner.nextLine();
+                    String nameSpecified = scanner.nextLine().toUpperCase();
 
-                    boolean ninjaFound = false;
+                    //criando uma lista para caso o usuario informe o nome incompleto
+                    //e tenha mais de um ninja com o mesmo primeiro nome
+                    List<Ninja> searchResult = new LinkedList<>();
                     for (Ninja ninja : ninjaList) {
-                        if (nameSpecified.equalsIgnoreCase(ninja.getName())) {
-                            System.out.println("Ninja Encontrado");
-                            System.out.println(ninja);
-                            ninjaFound = true;
-                            break;
+                        if (ninja.getName().toUpperCase().contains(nameSpecified)) {
+                            searchResult.add(ninja);
                         }
                     }
-                    if (!ninjaFound) {
-                        System.out.println("Não há nenhum ninja chamado " + nameSpecified + " na lista!");
+
+                    if (!searchResult.isEmpty()) {
+                        System.out.println("Ninja(as) como este nome encontrado!!");
+                        for (Ninja ninja : searchResult) {
+                            System.out.println(ninja);
+                        }
+                    } else {
+                        System.out.println("Não há ninjas com esse nome!");
                     }
                     break;
                 case 4:
@@ -89,21 +92,44 @@ public class Main {
                     break;
                 case 5:
                     //Mostrar todos os ninjas presentes
+                    System.out.println("----------------- TODOS OS NINJAS ----------------");
                     for (Ninja ninja : ninjaList) {
                         System.out.println(ninja);
                     }
                     break;
                 case 6:
-
+                    Comparator<Ninja> byAge = Comparator.comparingInt(Ninja::getAge);//definindo o comparator
+                    ninjaList = mySort.MergeSort(ninjaList, byAge); //Ordenação por Idade
+                    //mostrando a lista ordenada por Idade
+                    System.out.println("------------- LISTA ORDENADA POR IDADE ------------");
+                    for (Ninja ninja : ninjaList) {
+                        System.out.println(ninja);
+                    }
+                    System.out.println("-------------------------------------------------\n");
                     break;
                 case 7:
-
+                    Comparator<Ninja> byName = Comparator.comparing(Ninja::getName);//definindo o comparator
+                    ninjaList = mySort.MergeSort(ninjaList, byName); //Ordenação por Idade
+                    //mostrando a lista ordenada por Nome
+                    System.out.println("------------- LISTA ORDENADA POR NOME ------------");
+                    for (Ninja ninja : ninjaList) {
+                        System.out.println(ninja);
+                    }
+                    System.out.println("-------------------------------------------------\n");
                     break;
                 case 8:
-
+                    Comparator<Ninja> byVillage = Comparator.comparing(Ninja::getVillage);//definindo o comparator
+                    ninjaList = mySort.MergeSort(ninjaList, byVillage); //Ordenação por Idade
+                    //mostrando a lista ordenada por Aldeia
+                    System.out.println("------------- LISTA ORDENADA POR ALDEIA ------------");
+                    for (Ninja ninja : ninjaList) {
+                        System.out.println(ninja);
+                    }
+                    System.out.println("-------------------------------------------------\n");
                     break;
                 case 9:
                     quit = true;
+                    scanner.close();
                     System.out.println("Encerrando Sistema");
                     break;
                 default:

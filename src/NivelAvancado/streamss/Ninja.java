@@ -1,4 +1,4 @@
-package NivelAvancado;
+package NivelAvancado.streamss;
 
 public class Ninja {
     private String name;
